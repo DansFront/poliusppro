@@ -1,0 +1,226 @@
+.footer {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgb(221, 221, 221);
+  font-size: 16px;
+  line-height: 24px;
+  font-family: var(--sora);
+
+  ul{
+    list-style: none;
+  }
+
+  a {
+    color:#434343;
+    transition: all 0.2s;
+    &:hover {
+      text-decoration: underline;
+      color: var(--blue);
+    }
+  }
+
+  .row {
+    display: block;
+    padding: 3rem 0;
+    padding-right: 2rem;
+    @media screen and(min-width:768px) {
+      display: grid;
+      grid-template-columns: 1.5fr 1.3fr repeat(2, 1fr);
+      gap: 1rem;
+      margin: 0 auto;
+      padding: 2rem 0px;      
+    }
+
+    @media screen and(min-width: 992px) {
+      padding: 2rem 0px 0;      
+    }
+
+    @media screen and(min-width:1200px){
+      grid-template-columns: 1.5fr 1.2fr repeat(3, 1.2fr);
+      grid-template-rows: 1fr;
+    }
+  }
+
+  .logo {
+    position: relative;
+    cursor: pointer;
+    width: 150px;
+    height: 62px;
+    margin-bottom: 2.5rem;
+  }
+
+  .mba {
+    margin-bottom: 2rem;
+    span {
+      font-family: var(--sora);
+      font-weight: 700;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    .spanNormal{
+      span{font-weight: normal;} 
+    }
+  }
+
+  .coursesList{
+    margin-top: 8px;
+    margin-bottom: 16px;
+    li{
+      margin-bottom: 4px;
+    }
+  }
+  
+  .information_footer{
+    margin-top: 8px;
+    li{
+      margin-bottom: 4px;
+    }
+  }
+
+  .contact_footer{
+    margin-top: 8px;
+    li{
+      margin-bottom: 4px;
+      a{
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        margin: 0 0 .5rem;
+
+        svg{
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+
+  .social {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    gap: 0.75rem;
+
+    svg{
+      width: auto;
+      height: 17px;
+      fill: var(--white);
+    }
+
+    .perfilIcon{
+      text-decoration: none;
+      margin: 0 0 1rem;
+
+      button{
+        width: 120px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue);
+        font-size: 1rem;
+        white-space: nowrap;
+        border: 1px  solid var(--blue);
+        outline: transparent solid 2px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: #003CB3;
+        border-radius: 8px;
+        font-family: 'Sora';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 19px;
+        color: #FFFFFF;
+
+        svg{
+          margin-right: 0.5rem;
+        }
+        &:focus{
+          border-color: #7597ee;
+          box-shadow: #7597ee 0px 0px 0px 2px;
+        } 
+        &:hover{
+          background: var(--blue);
+          color: #fff;
+          border: 1px  solid var(--blue)
+        }
+      }
+    }
+
+    .socialMedia {
+      ul {
+        display: flex;
+        gap: 0.55rem;
+
+        li {
+          width: 35px;
+          height: 35px;
+          border-radius: 55%;
+          cursor: pointer;
+          transition: filter 0.2s;
+          a{
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;          
+          }
+          &:hover {
+            filter: brightness(0.8);
+          }
+        }
+      }
+    }
+
+    .bgFacebook {
+      background-color: #3B5998;
+    }
+
+    .bgInstagram {
+      background-color: #EB1967;
+    }
+
+    .bgTwitter {
+      background-color: #1DA1F2;
+    }
+
+    .bgLinkedin {
+      background-color: #0077B5;
+    }
+
+    .bgYoutube {
+      background-color: #CD201F;
+    }
+  }
+
+  .copyright{
+    background: #F2F4F7;
+    padding: 0.8rem 0;
+    .largerFill{
+        margin-bottom: 5rem;
+    }
+
+    .row{
+      padding: 0;
+    }
+    a{
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    @media screen and(min-width:768px){
+     .row{
+      display: flex;
+      justify-content: space-between;
+     } 
+    }
+  }
+
+  @media screen and(min-width:768px){
+    font-size: 0.9rem;
+  }
+}

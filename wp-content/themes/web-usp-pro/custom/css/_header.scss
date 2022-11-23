@@ -1,0 +1,230 @@
+.header{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: space-between;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  
+  /* is open */
+  &.open{
+    
+    /* nav */
+    .nav{
+      left: 0;
+      z-index: 1000;
+    }
+
+    /* hamb */
+    .hamburguer{
+      z-index: 1000;
+    }
+  }
+
+  /* internal */
+  &.internal{
+    position: relative;
+    background-color: var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+
+    /* logo */
+    .logo {
+      background-image: url(../../../assets/images/logo-colorido.svg);
+    }
+
+    /* hamburguer */
+    .hamburguer{
+      background-image: url(../../../assets/images/hamburguer-dark.svg);
+
+      /* is open */
+      &.open{
+        background-image: url(../../../assets/images/close-dark.svg);
+      }
+    }
+  }
+
+  /* fixed */
+  &.fixed{
+    position: fixed !important;
+  }
+
+  /* logo */
+  .logo{
+    width: 120px;
+    height: 49px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../../../assets/images/logo-white.svg);
+    transition: all ease 300ms;
+  }
+
+  /* nav */
+  .nav{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -200%;
+    background-color: var(--blue);
+    transition: all ease 300ms;
+  }
+
+  /* list */
+  .list{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 1rem 1.8rem;
+  }
+
+  /* item */
+  .item{
+    margin: 1rem 0;
+  }
+
+  /* link, button */
+  .link,
+  .button{
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    font-family: var(--sora);
+    color: var(--white);
+  }
+
+  /* button */
+  .button{
+    width: 180px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-weight: 500;
+    border-radius: 8px;
+    background-color: var(--white);
+
+    /* svg */
+    svg{
+      width: 12px;
+      fill: var(--orange);
+      margin: 0 0.5rem 0 0;
+    }
+  }
+
+  /* hamburguer */
+  .hamburguer{
+    width: 29px;
+    height: 29px;
+    z-index: 1;
+    transition: ease-in-out all 150ms;
+    background-image: url(../../../assets/images/hamburguer.svg);
+    background-position: center;
+    background-size: contain;
+    
+    svg{
+      fill: var(--blue);
+    }
+
+    /* is open */
+    &.open{
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      background-image: url(../../../assets/images/close.svg);
+    }
+  }
+
+  /* responsive */
+  @media screen and (min-width: 992px){
+
+    /* internal */
+    &.internal{
+      
+      /* link */
+      .link{
+        color: var(--grey-dark);
+        transition: all ease-in 350ms;
+
+        /* is hover */
+        &:hover{
+          color: var(--orange);
+        }
+      }
+
+      /* button */
+      .button{
+        color: var(--white);
+        background-color: var(--orange);
+        transition: all ease 250ms;
+
+        svg{
+          fill: var(--white);
+        }
+      }
+    }
+
+    /* logo */
+    .logo{
+      width: 169px;
+      height: 67px;
+    }
+    
+    /* nav */
+    .nav{
+      width: auto;
+      height: unset;
+      position: unset;
+      top: unset;
+      left: unset;
+      background-color: unset;
+    }
+
+    /* list */
+    .list{
+      width: auto;
+      display: flex;
+      flex-flow: wrap;
+      align-items: center;
+      padding: unset;
+    }
+
+    /* item */
+    .item{
+      margin: 0 0 0 2rem;
+    }
+    
+    /* link, button */
+    .link,
+    .button{
+      font-size: 15px;
+      line-height: 21px;
+      font-weight: 400;
+      font-family: var(--sora);
+      color: var(--white);
+    }
+
+    /* button */
+    .button{
+      width: 120px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      font-weight: 500;
+      border-radius: 4px;
+      background-color: var(--white);
+    }
+
+    /* hamb */
+    .hamburguer{
+      display: none;
+    }
+  }
+}

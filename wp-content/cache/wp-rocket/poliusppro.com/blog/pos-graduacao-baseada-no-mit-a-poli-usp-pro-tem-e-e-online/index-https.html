@@ -1,0 +1,887 @@
+<!doctype html>
+  <html lang="pt-BR">
+    <head><meta charset="utf-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+      <!-- metatags -->
+      
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<meta name="author" content="POLI USP">
+
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6KCN8R');</script>
+<!-- End Google Tag Manager -->
+      <!-- favicon-->
+      <link rel="apple-touch-icon" sizes="57x57" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/favicon-16x16.png">
+<link rel="manifest" href="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/icon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+      <!-- stylesheet -->
+      <link data-minify="1" rel="preload" href="https://poliusppro.com/wp-content/cache/min/1/wp-content/themes/web-usp-pro/custom/css/minify/single-blog.css?ver=1668013915" as="style">
+      <link data-minify="1" rel="stylesheet" href="https://poliusppro.com/wp-content/cache/min/1/wp-content/themes/web-usp-pro/custom/css/minify/single-blog.css?ver=1668013915">
+
+      <!-- function wordpress -->
+      <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Pós-graduação baseada no MIT? A POLI USP PRO tem! E é online! - POLI USP PRO</title>
+	<meta name="description" content="Quer fazer uma pós-graduação baseada no MIT? Então conheça o Curso de Especialização em Logística (CELOG), oferecido de maneira 100% online!" />
+	<link rel="canonical" href="https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/" />
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Pós-graduação baseada no MIT? A POLI USP PRO tem! E é online! - POLI USP PRO" />
+	<meta property="og:description" content="Quer fazer uma pós-graduação baseada no MIT? Então conheça o Curso de Especialização em Logística (CELOG), oferecido de maneira 100% online!" />
+	<meta property="og:url" content="https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/" />
+	<meta property="og:site_name" content="POLI USP PRO" />
+	<meta property="article:publisher" content="https://www.facebook.com/poliusppro" />
+	<meta property="article:modified_time" content="2022-07-12T01:49:16+00:00" />
+	<meta property="og:image" content="https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg" />
+	<meta property="og:image:width" content="1280" />
+	<meta property="og:image:height" content="720" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@poliusppro" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/","url":"https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/","name":"Pós-graduação baseada no MIT? A POLI USP PRO tem! E é online! - POLI USP PRO","isPartOf":{"@id":"https://167.172.238.98:25577/#website"},"primaryImageOfPage":{"@id":"https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/#primaryimage"},"image":{"@id":"https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/#primaryimage"},"thumbnailUrl":"https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg","datePublished":"2022-07-08T16:25:00+00:00","dateModified":"2022-07-12T01:49:16+00:00","description":"Quer fazer uma pós-graduação baseada no MIT? Então conheça o Curso de Especialização em Logística (CELOG), oferecido de maneira 100% online!","breadcrumb":{"@id":"https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/#breadcrumb"},"inLanguage":"pt-BR","potentialAction":[{"@type":"ReadAction","target":["https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/"]}]},{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/#primaryimage","url":"https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg","contentUrl":"https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg","width":1280,"height":720,"caption":"mit"},{"@type":"BreadcrumbList","@id":"https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://34.148.189.189/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://poliusppro.com/blog/"},{"@type":"ListItem","position":3,"name":"Pós-graduação baseada no MIT? A POLI USP PRO tem! E é online!"}]},{"@type":"WebSite","@id":"https://167.172.238.98:25577/#website","url":"https://167.172.238.98:25577/","name":"POLI USP PRO","description":"","publisher":{"@id":"https://167.172.238.98:25577/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://167.172.238.98:25577/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"pt-BR"},{"@type":"Organization","@id":"https://167.172.238.98:25577/#organization","name":"POLI USP PRO","url":"https://167.172.238.98:25577/","sameAs":["https://www.facebook.com/poliusppro","https://twitter.com/poliusppro"],"logo":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://167.172.238.98:25577/#/schema/logo/image/","url":"https://poliusppro.com/wp-content/uploads/2022/07/poli-usp-pro.png","contentUrl":"https://poliusppro.com/wp-content/uploads/2022/07/poli-usp-pro.png","width":1200,"height":630,"caption":"POLI USP PRO"},"image":{"@id":"https://167.172.238.98:25577/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/poliusppro.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.3"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://poliusppro.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0.3' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link data-minify="1" rel='stylesheet' id='cookie-law-info-css'  href='https://poliusppro.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=1668013909' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='cookie-law-info-gdpr-css'  href='https://poliusppro.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=1668013909' type='text/css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://poliusppro.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://poliusppro.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js' defer></script>
+<script type='text/javascript' id='cookie-law-info-js-extra'>
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"1","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#FFF","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#61a229","button_1_button_hover":"#4e8221","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#444","button_2_as_button":"","button_2_hidebar":"","button_3_button_colour":"#dedfe0","button_3_button_hover":"#b2b2b3","button_3_link_colour":"#333333","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#dedfe0","button_4_button_hover":"#b2b2b3","button_4_link_colour":"#333333","button_4_as_button":"1","button_7_button_colour":"#0a33a6","button_7_button_hover":"#082985","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"Arial, Helvetica, sans-serif","header_fix":"","notify_animate_hide":"1","notify_animate_show":"1","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#333333","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"widget","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"https:\/\/poliusppro.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://poliusppro.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=1668013909' id='cookie-law-info-js' defer></script>
+<link rel="https://api.w.org/" href="https://poliusppro.com/wp-json/" /><link rel="alternate" type="application/json" href="https://poliusppro.com/wp-json/wp/v2/blog/261" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://poliusppro.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://poliusppro.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.3" />
+<link rel='shortlink' href='https://poliusppro.com/?p=261' />
+<link rel="alternate" type="application/json+oembed" href="https://poliusppro.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpoliusppro.com%2Fblog%2Fpos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://poliusppro.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpoliusppro.com%2Fblog%2Fpos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online%2F&#038;format=xml" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>    </head>
+  <body>
+  
+    <!-- svg -->
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6KCN8R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- header -->
+    <header class="header">
+  <div class="container">
+    <!-- logo -->
+    <a href="https://poliusppro.com/blog" class="logo" aria-label="POLI USP PRO Logo"></a>
+
+    <!-- nav -->
+    <nav class="nav">
+      <ul class="list">
+        <li class="item">
+          <a href="https://poliusppro.com" class="link">Home</a>
+        </li>
+
+        <li class="item">
+          <a href="https://poliusppro.com/sobre" class="link">Sobre</a>
+        </li>
+
+        <li class="item">
+          <a href="/#cursos" class="link js-scroll">Cursos</a>
+        </li>
+
+        <li class="item">
+          <a href="https://poliusppro.com/parcerias" class="link">Parcerias</a>
+        </li>
+
+        <li class="item">
+          <a href="https://poliusppro.com/faq" class="link">FAQ</a>
+        </li>
+
+        <li class="item">
+          <a href="https://poliusppro.com/blog" class="link">Blog</a>
+        </li>
+
+        <li class="item">
+          <a href="https://academico.poliusppro.com/Account/Login?ReturnUrl=%2f" target="_blank" class="button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.605454C0 0.286435 0.296116 -0.00433453 0.613661 4.89355e-05L0.617557 0.000536091H21.8035C22.2588 0.0024843 22.534 0.20315 22.534 0.716502V8.93257C22.9382 8.98255 23.3102 9.1784 23.5801 9.48333C23.8501 9.78827 23.9994 10.1813 24 10.5885V13.429C24.0019 13.7476 23.812 14.1596 23.4034 14.1596H20.4812C20.0945 14.1577 19.8622 13.9575 19.8587 13.4354V10.5885C19.8593 10.1799 20.0097 9.78557 20.2815 9.48037C20.5533 9.17517 20.9276 8.98026 21.3335 8.93257V1.21086H17.6087V5.68345C17.6072 5.76949 17.5874 5.85422 17.5507 5.93206C17.514 6.00989 17.4612 6.07905 17.3958 6.13495C17.8796 7.05159 18.1313 8.07288 18.1288 9.10937C18.1288 10.8735 17.5351 12.3215 16.6029 13.3628C20.1568 14.9131 22.9441 18.3122 22.9441 23.4034C22.9441 23.719 22.6538 24 22.3392 24H1.32132C0.962863 24 0.652137 23.7657 0.647753 23.2694C0.696457 18.2533 3.44916 14.9019 6.97187 13.3735C6.03482 12.3317 5.43772 10.8808 5.43772 9.11181C5.44242 8.07676 5.69989 7.05853 6.18775 6.14567C6.11995 6.08934 6.06506 6.01908 6.02683 5.93967C5.98859 5.86025 5.96789 5.77353 5.96615 5.6854V1.21037H0.613661C0.295629 1.21524 0 0.924473 0 0.605454ZM22.3397 10.1258H21.5298L21.5278 10.1283C21.4667 10.1274 21.4061 10.1387 21.3494 10.1615C21.2928 10.1842 21.2411 10.2179 21.1976 10.2607C21.154 10.3035 21.1194 10.3545 21.0956 10.4108C21.0719 10.4671 21.0595 10.5275 21.0593 10.5885V12.9473H22.7994V10.5861C22.8002 10.5255 22.7888 10.4654 22.7659 10.4092C22.7431 10.3531 22.7092 10.3021 22.6664 10.2592C22.6236 10.2164 22.5726 10.1825 22.5165 10.1596C22.4604 10.1367 22.4003 10.1252 22.3397 10.1258ZM15.592 6C16.076 6.83721 16.3312 7.81909 16.3253 8.82149C16.3253 10.5632 15.7695 11.8022 14.9335 12.64C14.0976 13.4777 12.9581 13.9024 11.8131 13.9024C10.668 13.9024 9.52896 13.4787 8.69176 12.6414C7.85457 11.8042 7.3 10.5642 7.3 8.82295C7.30164 7.82052 7.55908 6.84024 8.04099 6.00146L15.592 6Z"/>
+  </svg>            Login
+          </a>
+        </li> 
+      </ul>
+    </nav>
+
+    <!-- hamburguer -->
+    <button class="hamburguer" aria-label="botão para abrir e fechar menu mobile"></button>
+  </div>
+</header>
+    
+      <!-- banner -->
+      <section class="banner">
+        <img width="1280" height="720" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20720'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="mit" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg 1280w, https://poliusppro.com/wp-content/uploads/2022/07/mit-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mit-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mit-768x432.jpg 768w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg" /><noscript><img width="1280" height="720" src="https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg" class="attachment-full size-full wp-post-image" alt="mit" srcset="https://poliusppro.com/wp-content/uploads/2022/07/mit.jpg 1280w, https://poliusppro.com/wp-content/uploads/2022/07/mit-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mit-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mit-768x432.jpg 768w" sizes="(max-width: 1280px) 100vw, 1280px" /></noscript>      </section>
+
+      <!-- row -->
+      <div class="back-button">
+        <div class="container">
+          <a href="javascript:history.back()" class="btn-back-button">Voltar</a>
+        </div>
+      </div>
+
+      <!-- single -->
+      <section class="single">
+        <div class="container">
+          <div class="column">
+            <!-- principal -->
+            <main>
+              <!-- titulo -->
+              <h1 class="title">Pós-graduação baseada no MIT? A POLI USP PRO tem! E é online!</h1>
+
+              <!-- usuário -->
+              <div class="user">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58065 0 0 3.58065 0 8C0 12.4194 3.58065 16 8 16C12.4194 16 16 12.4194 16 8C16 3.58065 12.4194 0 8 0ZM8 3.09677C9.56774 3.09677 10.8387 4.36774 10.8387 5.93548C10.8387 7.50323 9.56774 8.77419 8 8.77419C6.43226 8.77419 5.16129 7.50323 5.16129 5.93548C5.16129 4.36774 6.43226 3.09677 8 3.09677ZM8 14.1935C6.10645 14.1935 4.40968 13.3355 3.27419 11.9935C3.88065 10.8516 5.06774 10.0645 6.45161 10.0645C6.52903 10.0645 6.60645 10.0774 6.68064 10.1C7.1 10.2355 7.53871 10.3226 8 10.3226C8.46129 10.3226 8.90322 10.2355 9.31935 10.1C9.39355 10.0774 9.47097 10.0645 9.54839 10.0645C10.9323 10.0645 12.1194 10.8516 12.7258 11.9935C11.5903 13.3355 9.89355 14.1935 8 14.1935Z" fill="#003CB3"/></svg>                Por: Caio Roberto              </div>
+
+              <!-- calendário -->
+              <div class="calendary">
+                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.5C0 15.3281 0.671875 16 1.5 16H12.5C13.3281 16 14 15.3281 14 14.5V6H0V14.5ZM10 8.375C10 8.16875 10.1688 8 10.375 8H11.625C11.8312 8 12 8.16875 12 8.375V9.625C12 9.83125 11.8312 10 11.625 10H10.375C10.1688 10 10 9.83125 10 9.625V8.375ZM10 12.375C10 12.1688 10.1688 12 10.375 12H11.625C11.8312 12 12 12.1688 12 12.375V13.625C12 13.8312 11.8312 14 11.625 14H10.375C10.1688 14 10 13.8312 10 13.625V12.375ZM6 8.375C6 8.16875 6.16875 8 6.375 8H7.625C7.83125 8 8 8.16875 8 8.375V9.625C8 9.83125 7.83125 10 7.625 10H6.375C6.16875 10 6 9.83125 6 9.625V8.375ZM6 12.375C6 12.1688 6.16875 12 6.375 12H7.625C7.83125 12 8 12.1688 8 12.375V13.625C8 13.8312 7.83125 14 7.625 14H6.375C6.16875 14 6 13.8312 6 13.625V12.375ZM2 8.375C2 8.16875 2.16875 8 2.375 8H3.625C3.83125 8 4 8.16875 4 8.375V9.625C4 9.83125 3.83125 10 3.625 10H2.375C2.16875 10 2 9.83125 2 9.625V8.375ZM2 12.375C2 12.1688 2.16875 12 2.375 12H3.625C3.83125 12 4 12.1688 4 12.375V13.625C4 13.8312 3.83125 14 3.625 14H2.375C2.16875 14 2 13.8312 2 13.625V12.375ZM12.5 2H11V0.5C11 0.225 10.775 0 10.5 0H9.5C9.225 0 9 0.225 9 0.5V2H5V0.5C5 0.225 4.775 0 4.5 0H3.5C3.225 0 3 0.225 3 0.5V2H1.5C0.671875 2 0 2.67188 0 3.5V5H14V3.5C14 2.67188 13.3281 2 12.5 2Z" fill="#003CB3"/></svg>                8 de julho de 2022              </div>
+
+              <!-- texto -->
+              <div class="text">
+                
+<p>Quer fazer uma pós-graduação que tem o programa de aulas baseado em pesquisas do Instituto de Tecnologia de Massachusetts (MIT)? Então conheça o Curso de Especialização em Logística (CELOG) da <a href="https://poliusppro.com/" target="_blank" rel="noreferrer noopener">POLI USP PRO</a> e se surpreenda com a qualidade do ensino, oferecido de maneira 100% online.</p>
+
+
+
+<p>A expansão da internet mudou profundamente algumas áreas e a Logística foi uma delas, que deixou de ser um setor de suporte ao departamento de vendas das empresas e se tornou um departamento próprio, essencial para o funcionamento dos negócios. E essa é uma tendência estudada há décadas pelo MIT.</p>
+
+
+
+<p>Leia também: <a href="https://poliusppro.com/blog/conheca-a-especializacao-em-logistica-da-poli-usp-pro/" target="_blank" rel="noreferrer noopener">Conheça a Especialização em Logística da POLI USP PRO!</a></p>
+
+
+
+<h3><strong>Onde entra o MIT na história do curso?</strong></h3>
+
+
+
+<figure class="wp-block-image size-large"><img width="1024" height="576" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20576'%3E%3C/svg%3E" alt="Pessoa faz pesquisa com caneta e papel no MIT." class="wp-image-263" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-1536x864.jpg 1536w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog.jpg 1920w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-1024x576.jpg" /><noscript><img width="1024" height="576" src="https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-1024x576.jpg" alt="Pessoa faz pesquisa com caneta e papel no MIT." class="wp-image-263" srcset="https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog-1536x864.jpg 1536w, https://poliusppro.com/wp-content/uploads/2022/07/mit-celog.jpg 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript><figcaption>O PRO tem uma longa história de cooperação com o MIT.</figcaption></figure>
+
+
+
+<p>O CELOG é fruto de uma longa história de colaboração entre professores e alunos do Centro de Inovação em Engenharia de Sistemas Logísticos (CISLOG), do Departamento de Engenharia de Produção (PRO) da Escola Politécnica (POLI) da Universidade de São Paulo (USP), com o Centro de Transportação e Logística (CTL) do MIT. Diversos professores do CISLOG estudaram e lecionaram na instituição americana, além de terem contribuído muito para os trabalhos feitos pelo CTL.</p>
+
+
+
+<p>Em 2003, esses mesmos professores criaram o Mestrado em Logística (MLOG), trazendo para o Brasil todo o conhecimento que adquiriram por lá e firmando uma parceria oficial com o MIT. No entanto, ainda havia uma forte demanda por um curso mais prático e, pensando nisso, o CELOG foi criado em 2005. “O CELOG é um <em>spin-off</em> do MLOG, com uma versão mais corporativa e menos acadêmica”, comenta <a href="https://www.linkedin.com/in/danielmota/" target="_blank" rel="noreferrer noopener">Daniel Mota</a>, vice-coordenador USP dos cursos da POLI USP PRO.</p>
+
+
+
+<p>O objetivo do curso é trazer uma visão inovadora sobre o universo da Logística, baseada em estudos e pesquisas do MIT, e atender à grande necessidade de profissionais com uma visão sistêmica do <em>supply chain</em> demandada pela área de Logística atualmente.</p>
+
+
+
+<p>Agora, esse curso com mais de 20 anos de história está disponível também de forma 100% online.</p>
+
+
+
+<p>Leia mais: <a href="https://poliusppro.com/blog/tcc-da-pos-graduacao-uma-possibilidade-de-promocao-profissional/" target="_blank" rel="noreferrer noopener">TCC da pós-graduação: uma possibilidade de promoção profissional</a></p>
+
+
+
+<h3><strong>Visão inovadora</strong></h3>
+
+
+
+<p>De acordo com Mota, o CELOG oferece aos alunos uma visão totalmente inovadora da logística, desenvolvida por professores e estudantes do MIT. Essa perspectiva considera as dificuldades que o setor tem enfrentado nas últimas décadas devido a uma economia cada vez mais globalizada e o crescimento exponencial do <em>e-commerce</em>.</p>
+
+
+
+<p>Com essas mudanças, a gestão de logística e a criação de uma <em>supply chain</em> tem se tornado uma área cada vez mais estratégica nas empresas. Além disso, é cada vez mais necessária a presença de profissionais tecnicamente capacitados, com uma visão sistêmica da cadeia, para a tomada de decisões.</p>
+
+
+
+<p>Por isso, o CELOG se baseia na crença de que um bom profissional de logística no mundo empresarial do século XXI precisa ser mais do que apenas um administrador, mas necessita também de conhecimento técnico. “Atualmente não adianta ser apenas um bom gestor, tem que ser um gestor técnico”, destaca Mota.</p>
+
+
+
+<p>Leia também: <a href="https://poliusppro.com/blog/saiba-diretamente-pelos-alunos-como-e-uma-pos-graduacao-na-poli-usp/" target="_blank" rel="noreferrer noopener">Saiba diretamente pelos alunos como é uma pós-graduação na POLI USP!</a></p>
+
+
+
+<h3><strong>Então, o CELOG oferece conhecimento técnico!</strong></h3>
+
+
+
+<figure class="wp-block-image size-large"><img width="1024" height="576" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20576'%3E%3C/svg%3E" alt="Pessoas analisam dados do MIT." class="wp-image-264" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/mit-online-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online-1536x864.jpg 1536w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online.jpg 1920w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/mit-online-1024x576.jpg" /><noscript><img width="1024" height="576" src="https://poliusppro.com/wp-content/uploads/2022/07/mit-online-1024x576.jpg" alt="Pessoas analisam dados do MIT." class="wp-image-264" srcset="https://poliusppro.com/wp-content/uploads/2022/07/mit-online-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online-1536x864.jpg 1536w, https://poliusppro.com/wp-content/uploads/2022/07/mit-online.jpg 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript><figcaption>O CELOG oferece a oportunidade de adquirir os melhores conhecimentos do MIT sem ter que sair de casa.</figcaption></figure>
+
+
+
+<p>Segundo o vice-coordenador, o CELOG busca capacitar seus alunos tanto em <em>soft skills</em> (habilidades interpessoais e qualitativas), como em <em>hard skills</em> (habilidades técnicas e quantitativas). Assim, o profissional formado estará igualmente habilitado a lidar com a gestão de seus colegas e subordinados e com desafios tecnológicos e específicos do setor.</p>
+
+
+
+<p>Para isso, além das matérias comuns de gestão, o curso passa por diversas áreas técnicas, se aprofundando em pesquisa operacional. O aluno do CELOG aprenderá bases de análise de dados, modelagens matemáticas, programação, criação de simulações, <em>network design</em> (estrutura da rede de distribuição), entre outras matérias que contribuem, em muito, para sua formação profissional.</p>
+
+
+
+<p>O curso ainda estimula os alunos a lidarem com problemas reais da empresa em que trabalham durante seu Trabalho de Conclusão de Curso (TCC). “Isso acaba sendo não apenas um retorno para a empresa dele, mas também expõe o aluno a uma provação do que ele estudou e que revistas especializadas se interessam pelo assunto”, explica Mota.</p>
+
+
+
+<p>Leia mais: <a href="https://poliusppro.com/blog/a-hora-e-agora-comece-sua-pos-graduacao-na-poli-usp-pro/" target="_blank" rel="noreferrer noopener">A hora é agora! Comece sua pós-graduação na POLI USP PRO!</a></p>
+
+
+
+<p>Quer aprender o que os melhores profissionais de logística do mundo estão estudando? Então não perca essa oportunidade e conheça o <a href="https://poliusppro.com/cursos/especializacao-em-logistica-celog/" target="_blank" rel="noreferrer noopener">Curso de Especialização em Logística (CELOG) da POLI USP PRO</a> que possui um programa de aulas baseado em pesquisas do MIT. As inscrições podem ser feitas diretamente pelo site.</p>
+
+
+
+<p>Você também pode gostar:</p>
+
+
+
+<ul><li><a href="https://poliusppro.com/blog/a-poli-usp-pro-agora-esta-online-com-cursos-de-pos-graduacao-ead/" target="_blank" rel="noreferrer noopener">A POLI USP PRO agora está online com cursos de pós-graduação EAD!</a></li><li><a href="https://poliusppro.com/blog/3-motivos-pelos-quais-voce-deve-escolher-a-poli-usp-pro/" target="_blank" rel="noreferrer noopener">3 motivos pelos quais você deve escolher a POLI USP PRO!</a></li><li><a href="https://poliusppro.com/blog/como-e-o-funcionamento-dos-cursos-da-poli-usp-pro/" target="_blank" rel="noreferrer noopener">Como é o funcionamento dos cursos da POLI USP PRO?</a></li></ul>
+              </div>
+            </main>
+
+            <div class="row">
+              <a href="javascript:history.back()" class="btn-back-button">Voltar</a>
+
+              <!-- compartilhe -->
+              <div class="share">
+                <!-- titulo -->
+                <span class="title">Compartilhe</span>
+
+                <!-- whatsapp -->
+                <a href="https://api.whatsapp.com/send?text=https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/" aria-label="whatsapp" target="_blank" class="social" style="background-color: #00A884;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+
+                <!-- twitter -->
+                <a href="https://twitter.com/intent/tweet?url=https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/&text=Pós-graduação baseada no MIT? A POLI USP PRO tem! E é online!=&hashtags=" aria-label="Twitter" target="_blank" class="social" style="background-color: #1da1f2;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+
+                <!-- linkedin -->
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/&title=Pós-graduação baseada no MIT? A POLI USP PRO tem! E é online!&summary=&source=" aria-label="Linkedin" target="_blank" class="social" style="background-color: #0077b5;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+
+                <!-- facebook -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://poliusppro.com/blog/pos-graduacao-baseada-no-mit-a-poli-usp-pro-tem-e-e-online/" aria-label="Facebook" target="_blank" class="social" style="background-color: #3b5998;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+              </div>
+            </div>
+
+            <!-- trending -->
+            <!-- <div class="trending"> -->
+              <!-- titulo -->
+              <!-- <h2 class="title">Trending</h2> -->
+
+              <!-- list -->
+              <!-- <ul class="list">
+                <li><span class="link">Escrita</span></li>
+                <li><span class="link">Auto-aperfeiçoamento</span></li>
+                <li><span class="link">Jornal</span></li>
+                <li><span class="link">Saúde Mental</span></li>
+                <li><span class="link">Produtividade</span></li>
+                <li><span class="link">Lições de Vida</span></li>
+                <li><span class="link">Vida</span></li>
+                <li><span class="link">Desenvolvimento Pessoal</span></li>
+                <li><span class="link">Autoconsciência</span></li>
+              </ul>
+            </div>-->
+          </div> 
+
+          <div class="column">
+            <!-- search -->
+            <div class="search">
+              <!-- title -->
+              <h2 class="title">Buscar</h2>
+
+              <!-- form -->
+              <form class="input" method="get" action="https://poliusppro.com/blog/">
+                <input type="text" placeholder="Buscar..." name="s">
+
+                <button type="submit">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.7825 13.8337L12.6669 10.718C12.5263 10.5774 12.3357 10.4993 12.1357 10.4993H11.6263C12.4888 9.39613 13.0013 8.00861 13.0013 6.4992C13.0013 2.90851 10.092 -0.000915527 6.50138 -0.000915527C2.9108 -0.000915527 0.00146484 2.90851 0.00146484 6.4992C0.00146484 10.0899 2.9108 12.9993 6.50138 12.9993C8.01073 12.9993 9.39821 12.4868 10.5013 11.6243V12.1337C10.5013 12.3337 10.5794 12.5243 10.7201 12.6649L13.8356 15.7806C14.1294 16.0744 14.6044 16.0744 14.895 15.7806L15.7794 14.8962C16.0731 14.6025 16.0731 14.1275 15.7825 13.8337ZM6.50138 10.4993C4.29203 10.4993 2.50143 8.71174 2.50143 6.4992C2.50143 4.28979 4.28891 2.49913 6.50138 2.49913C8.71072 2.49913 10.5013 4.28666 10.5013 6.4992C10.5013 8.70862 8.71385 10.4993 6.50138 10.4993Z" fill="#5F6164"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          
+            <!-- mais lidas -->
+                                      <!-- mais lidas -->
+              <aside class="most-read">
+                <!-- title -->
+                <h2 class="title">Mais lidas</h2>
+
+                <!-- post -->
+                                  <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/professores-da-poli-usp-pro-dao-dicas-de-leitura-para-te-ajudar/','_self')">
+                    <!-- imagem -->
+                    <div class="image">
+                      <img width="1920" height="1080" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-1536x864.jpg 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura.jpg" /><noscript><img width="1920" height="1080" src="https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura.jpg" class="attachment-full size-full wp-post-image" alt="" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/dicas-de-leitura-1536x864.jpg 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>                    </div>
+
+                    <!-- caixa -->
+                    <div class="content-box">
+                      <!-- categoria -->
+                      <div class="category">
+                                                                                                      <a href="https://poliusppro.com/categoria/poli-usp-pro" style="color: #ffffff;">POLI USP PRO</a>
+                                                                        </div>
+
+                      <!-- titulo -->
+                      <h3 class="title-post">
+                        Professores da POLI USP PRO dão dicas de leitura para te ajudar!                      </h3>
+                    </div>
+                  </article>
+                                  <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/conheca-o-mba-em-engenharia-de-producao-da-poli-usp-pro/','_self')">
+                    <!-- imagem -->
+                    <div class="image">
+                      <img width="1920" height="1080" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="mba-em-engenharia-de-producao" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-1536x864.jpg 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao.jpg" /><noscript><img width="1920" height="1080" src="https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao.jpg" class="attachment-full size-full wp-post-image" alt="mba-em-engenharia-de-producao" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/mba-em-engenharia-de-producao-1536x864.jpg 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>                    </div>
+
+                    <!-- caixa -->
+                    <div class="content-box">
+                      <!-- categoria -->
+                      <div class="category">
+                                                                                                      <a href="https://poliusppro.com/categoria/mba-em-engenharia-de-producao" style="color: #ffffff;">MBA em Engenharia de Produção</a>
+                                                                        </div>
+
+                      <!-- titulo -->
+                      <h3 class="title-post">
+                        Conheça o MBA em Engenharia de Produção da POLI USP PRO!                      </h3>
+                    </div>
+                  </article>
+                                  <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/lean-six-sigma-entenda-como-funciona/','_self')">
+                    <!-- imagem -->
+                    <div class="image">
+                      <img width="1366" height="768" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201366%20768'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="lean-seis-sigma" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma.jpg 1366w, https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma-768x432.jpg 768w" data-lazy-sizes="(max-width: 1366px) 100vw, 1366px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma.jpg" /><noscript><img width="1366" height="768" src="https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma.jpg" class="attachment-full size-full wp-post-image" alt="lean-seis-sigma" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma.jpg 1366w, https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/09/lean-seis-sigma-768x432.jpg 768w" sizes="(max-width: 1366px) 100vw, 1366px" /></noscript>                    </div>
+
+                    <!-- caixa -->
+                    <div class="content-box">
+                      <!-- categoria -->
+                      <div class="category">
+                                                                                                      <a href="https://poliusppro.com/categoria/qualidade-e-produtividade" style="color: #ffffff;">Qualidade e Produtividade</a>
+                                                                        </div>
+
+                      <!-- titulo -->
+                      <h3 class="title-post">
+                        Lean Six Sigma: entenda como funciona!                      </h3>
+                    </div>
+                  </article>
+                                  <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/conheca-a-especializacao-em-gestao-de-projetos-da-poli-usp-pro/','_self')">
+                    <!-- imagem -->
+                    <div class="image">
+                      <img width="1920" height="1080" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="gestao-de-projetos" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-1536x864.jpg 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos.jpg" /><noscript><img width="1920" height="1080" src="https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos.jpg" class="attachment-full size-full wp-post-image" alt="gestao-de-projetos" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/gestao-de-projetos-1536x864.jpg 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>                    </div>
+
+                    <!-- caixa -->
+                    <div class="content-box">
+                      <!-- categoria -->
+                      <div class="category">
+                                                                                                      <a href="https://poliusppro.com/categoria/gestao-de-projetos" style="color: #ffffff;">Gestão de Projetos</a>
+                                                                        </div>
+
+                      <!-- titulo -->
+                      <h3 class="title-post">
+                        Conheça a Especialização em Gestão de Projetos da POLI USP PRO!                      </h3>
+                    </div>
+                  </article>
+                                  <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/gestao-da-qualidade-total-uma-importante-ferramenta-da-qualidade-aplicada-a-gestao/','_self')">
+                    <!-- imagem -->
+                    <div class="image">
+                      <img width="1920" height="734" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%20734'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="gestao-da-qualidade-total" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-300x115.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-1024x391.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-768x294.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-1536x587.jpg 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652.jpg" /><noscript><img width="1920" height="734" src="https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652.jpg" class="attachment-full size-full wp-post-image" alt="gestao-da-qualidade-total" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-300x115.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-1024x391.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-768x294.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/08/gestao-da-qualidade-total-e1662035509652-1536x587.jpg 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>                    </div>
+
+                    <!-- caixa -->
+                    <div class="content-box">
+                      <!-- categoria -->
+                      <div class="category">
+                                                                                                      <a href="https://poliusppro.com/categoria/qualidade-e-produtividade" style="color: #ffffff;">Qualidade e Produtividade</a>
+                                                                        </div>
+
+                      <!-- titulo -->
+                      <h3 class="title-post">
+                        Gestão da Qualidade Total: uma importante ferramenta da qualidade aplicada à gestão!                      </h3>
+                    </div>
+                  </article>
+                                  <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/conheca-a-especializacao-em-logistica-da-poli-usp-pro/','_self')">
+                    <!-- imagem -->
+                    <div class="image">
+                      <img width="1920" height="1080" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="logistica" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1536x864.jpg 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg" /><noscript><img width="1920" height="1080" src="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg" class="attachment-full size-full wp-post-image" alt="logistica" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1536x864.jpg 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>                    </div>
+
+                    <!-- caixa -->
+                    <div class="content-box">
+                      <!-- categoria -->
+                      <div class="category">
+                                                                                                      <a href="https://poliusppro.com/categoria/logistica" style="color: #ffffff;">Logística</a>
+                                                                        </div>
+
+                      <!-- titulo -->
+                      <h3 class="title-post">
+                        Conheça a Especialização em Logística da POLI USP PRO!                      </h3>
+                    </div>
+                  </article>
+                              </aside>
+                                  </div>
+        </div>
+      </section>
+
+
+      <!-- POLI USP -->
+                    <section class="poliusp">
+          <div class="container">
+            <!-- titulo -->
+            <h2 class="title">Posts relacionados</h2>
+
+            <!-- row -->
+            <div class="row">
+                              <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/celogda-inicio-as-aulas-com-muita-interacao-e-a-historia-da-logistica/','_self')">
+                  <!-- image -->
+                  <div class="image">
+                    <!-- image -->
+                    <img width="1920" height="1080" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="historia-da-logistica" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-1536x864.jpg 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica.jpg" /><noscript><img width="1920" height="1080" src="https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica.jpg" class="attachment-full size-full wp-post-image" alt="historia-da-logistica" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/historia-da-logistica-1536x864.jpg 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>
+                    <!-- category -->
+                    <div class="category">
+                                                                                              <a href="https://poliusppro.com/categoria/logistica" style="color: #ffffff;">Logística</a>
+                                                                  </div>
+                  </div>
+
+                  <div class="box">
+                    <!-- usuário -->
+                    <div class="user">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58065 0 0 3.58065 0 8C0 12.4194 3.58065 16 8 16C12.4194 16 16 12.4194 16 8C16 3.58065 12.4194 0 8 0ZM8 3.09677C9.56774 3.09677 10.8387 4.36774 10.8387 5.93548C10.8387 7.50323 9.56774 8.77419 8 8.77419C6.43226 8.77419 5.16129 7.50323 5.16129 5.93548C5.16129 4.36774 6.43226 3.09677 8 3.09677ZM8 14.1935C6.10645 14.1935 4.40968 13.3355 3.27419 11.9935C3.88065 10.8516 5.06774 10.0645 6.45161 10.0645C6.52903 10.0645 6.60645 10.0774 6.68064 10.1C7.1 10.2355 7.53871 10.3226 8 10.3226C8.46129 10.3226 8.90322 10.2355 9.31935 10.1C9.39355 10.0774 9.47097 10.0645 9.54839 10.0645C10.9323 10.0645 12.1194 10.8516 12.7258 11.9935C11.5903 13.3355 9.89355 14.1935 8 14.1935Z" fill="#003CB3"/></svg>                      Por: Caio Roberto                    </div>
+
+                    <!-- calendário -->
+                    <div class="calendary">
+                      <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.5C0 15.3281 0.671875 16 1.5 16H12.5C13.3281 16 14 15.3281 14 14.5V6H0V14.5ZM10 8.375C10 8.16875 10.1688 8 10.375 8H11.625C11.8312 8 12 8.16875 12 8.375V9.625C12 9.83125 11.8312 10 11.625 10H10.375C10.1688 10 10 9.83125 10 9.625V8.375ZM10 12.375C10 12.1688 10.1688 12 10.375 12H11.625C11.8312 12 12 12.1688 12 12.375V13.625C12 13.8312 11.8312 14 11.625 14H10.375C10.1688 14 10 13.8312 10 13.625V12.375ZM6 8.375C6 8.16875 6.16875 8 6.375 8H7.625C7.83125 8 8 8.16875 8 8.375V9.625C8 9.83125 7.83125 10 7.625 10H6.375C6.16875 10 6 9.83125 6 9.625V8.375ZM6 12.375C6 12.1688 6.16875 12 6.375 12H7.625C7.83125 12 8 12.1688 8 12.375V13.625C8 13.8312 7.83125 14 7.625 14H6.375C6.16875 14 6 13.8312 6 13.625V12.375ZM2 8.375C2 8.16875 2.16875 8 2.375 8H3.625C3.83125 8 4 8.16875 4 8.375V9.625C4 9.83125 3.83125 10 3.625 10H2.375C2.16875 10 2 9.83125 2 9.625V8.375ZM2 12.375C2 12.1688 2.16875 12 2.375 12H3.625C3.83125 12 4 12.1688 4 12.375V13.625C4 13.8312 3.83125 14 3.625 14H2.375C2.16875 14 2 13.8312 2 13.625V12.375ZM12.5 2H11V0.5C11 0.225 10.775 0 10.5 0H9.5C9.225 0 9 0.225 9 0.5V2H5V0.5C5 0.225 4.775 0 4.5 0H3.5C3.225 0 3 0.225 3 0.5V2H1.5C0.671875 2 0 2.67188 0 3.5V5H14V3.5C14 2.67188 13.3281 2 12.5 2Z" fill="#003CB3"/></svg>                      12 de julho de 2022                    </div>
+
+                    <!-- title -->
+                    <h2 class="title-box">CELOG dá início às aulas com muita interação e a histó...</h2>
+
+                    <!-- text -->
+                    <div class="text">Já pensou em ter aulas com os melhores professores do mercado sem ter que sair de casa? O curso de Especialização em Logística (CELOG) da POLI USP PRO foi i...</div>
+
+                    <!-- button -->
+                    <a href="https://poliusppro.com/blog/celogda-inicio-as-aulas-com-muita-interacao-e-a-historia-da-logistica/" class="button">Saiba mais</a>
+                  </div>
+                </article>
+                              <article class="post" style="cursor: pointer;" onclick="window.open('https://poliusppro.com/blog/conheca-a-especializacao-em-logistica-da-poli-usp-pro/','_self')">
+                  <!-- image -->
+                  <div class="image">
+                    <!-- image -->
+                    <img width="1920" height="1080" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E" class="attachment-full size-full wp-post-image" alt="logistica" loading="lazy" data-lazy-srcset="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1536x864.jpg 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg" /><noscript><img width="1920" height="1080" src="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg" class="attachment-full size-full wp-post-image" alt="logistica" loading="lazy" srcset="https://poliusppro.com/wp-content/uploads/2022/07/logistica.jpg 1920w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-300x169.jpg 300w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1024x576.jpg 1024w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-768x432.jpg 768w, https://poliusppro.com/wp-content/uploads/2022/07/logistica-1536x864.jpg 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>
+                    <!-- category -->
+                    <div class="category">
+                                                                                              <a href="https://poliusppro.com/categoria/logistica" style="color: #ffffff;">Logística</a>
+                                                                  </div>
+                  </div>
+
+                  <div class="box">
+                    <!-- usuário -->
+                    <div class="user">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58065 0 0 3.58065 0 8C0 12.4194 3.58065 16 8 16C12.4194 16 16 12.4194 16 8C16 3.58065 12.4194 0 8 0ZM8 3.09677C9.56774 3.09677 10.8387 4.36774 10.8387 5.93548C10.8387 7.50323 9.56774 8.77419 8 8.77419C6.43226 8.77419 5.16129 7.50323 5.16129 5.93548C5.16129 4.36774 6.43226 3.09677 8 3.09677ZM8 14.1935C6.10645 14.1935 4.40968 13.3355 3.27419 11.9935C3.88065 10.8516 5.06774 10.0645 6.45161 10.0645C6.52903 10.0645 6.60645 10.0774 6.68064 10.1C7.1 10.2355 7.53871 10.3226 8 10.3226C8.46129 10.3226 8.90322 10.2355 9.31935 10.1C9.39355 10.0774 9.47097 10.0645 9.54839 10.0645C10.9323 10.0645 12.1194 10.8516 12.7258 11.9935C11.5903 13.3355 9.89355 14.1935 8 14.1935Z" fill="#003CB3"/></svg>                      Por: Caio Roberto                    </div>
+
+                    <!-- calendário -->
+                    <div class="calendary">
+                      <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.5C0 15.3281 0.671875 16 1.5 16H12.5C13.3281 16 14 15.3281 14 14.5V6H0V14.5ZM10 8.375C10 8.16875 10.1688 8 10.375 8H11.625C11.8312 8 12 8.16875 12 8.375V9.625C12 9.83125 11.8312 10 11.625 10H10.375C10.1688 10 10 9.83125 10 9.625V8.375ZM10 12.375C10 12.1688 10.1688 12 10.375 12H11.625C11.8312 12 12 12.1688 12 12.375V13.625C12 13.8312 11.8312 14 11.625 14H10.375C10.1688 14 10 13.8312 10 13.625V12.375ZM6 8.375C6 8.16875 6.16875 8 6.375 8H7.625C7.83125 8 8 8.16875 8 8.375V9.625C8 9.83125 7.83125 10 7.625 10H6.375C6.16875 10 6 9.83125 6 9.625V8.375ZM6 12.375C6 12.1688 6.16875 12 6.375 12H7.625C7.83125 12 8 12.1688 8 12.375V13.625C8 13.8312 7.83125 14 7.625 14H6.375C6.16875 14 6 13.8312 6 13.625V12.375ZM2 8.375C2 8.16875 2.16875 8 2.375 8H3.625C3.83125 8 4 8.16875 4 8.375V9.625C4 9.83125 3.83125 10 3.625 10H2.375C2.16875 10 2 9.83125 2 9.625V8.375ZM2 12.375C2 12.1688 2.16875 12 2.375 12H3.625C3.83125 12 4 12.1688 4 12.375V13.625C4 13.8312 3.83125 14 3.625 14H2.375C2.16875 14 2 13.8312 2 13.625V12.375ZM12.5 2H11V0.5C11 0.225 10.775 0 10.5 0H9.5C9.225 0 9 0.225 9 0.5V2H5V0.5C5 0.225 4.775 0 4.5 0H3.5C3.225 0 3 0.225 3 0.5V2H1.5C0.671875 2 0 2.67188 0 3.5V5H14V3.5C14 2.67188 13.3281 2 12.5 2Z" fill="#003CB3"/></svg>                      8 de julho de 2022                    </div>
+
+                    <!-- title -->
+                    <h2 class="title-box">Conheça a Especialização em Logística da POLI USP PRO!...</h2>
+
+                    <!-- text -->
+                    <div class="text">A globalização e o surgimento do e-commerce fizeram com que o campo da Logística passasse por diversas mudanças nas últimas décadas. A área deixou de ser...</div>
+
+                    <!-- button -->
+                    <a href="https://poliusppro.com/blog/conheca-a-especializacao-em-logistica-da-poli-usp-pro/" class="button">Saiba mais</a>
+                  </div>
+                </article>
+                          </div>
+          </div>
+        </section>
+              
+    
+    <!-- footer -->
+    <footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="mba">
+        <a href="/">
+          <div class="logo">
+            <img width="196" height="75" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20196%2075'%3E%3C/svg%3E" alt="Logotipo da Poli USP PRO" data-lazy-src="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/logo-internal.png"><noscript><img width="196" height="75" src="https://poliusppro.com/wp-content/themes/web-usp-pro/assets/images/logo-internal.png" alt="Logotipo da Poli USP PRO"></noscript>
+          </div>
+        </a>
+
+        <div>
+          <p>Pós-graduação Lato sensu da POLI USP *Campanha válida para o segundo semestre de 2022</p>
+        </div>
+      </div>
+
+      <div class="mba">
+        <span>Nossos cursos</span>
+        
+		<ul class="coursesList">
+            <li>
+                <a href="/#cursos" class="js-scroll">MBAs e Especializações</a>
+            </li>
+        </ul>
+      </div>
+
+      <div class="mba">
+        <span>Informações</span>
+
+        <ul class="information_footer">
+          <li>
+            <a href="https://poliusppro.com/sobre">
+              Sobre
+            </a>
+          </li>
+
+          <li>
+            <a href="https://bolsas.poliusppro.com/" target="_blank">
+              Programa de Bolsas
+            </a>
+          </li>
+
+          <li>
+            <a href="https://poliusppro.com/faq">
+              FAQ
+            </a>
+          </li>
+
+          <li>
+            <a href="https://poliusppro.com/blog">
+              Blog
+            </a>
+          </li>
+
+          <li>
+            <a href="https://poliusppro.com/politica-de-privacidade">
+              Política de Privacidade
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mba">
+        <span>Contatos</span>
+
+        <ul class="contact_footer">
+          <li>
+            <a href="tel:+55112853-0781" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.1328 10.3125L11.9581 8.95158C11.6731 8.83038 11.3566 8.80476 11.0558 8.87856C10.755 8.95236 10.4862 9.12161 10.2897 9.36095L9.26783 10.611C7.62857 9.71752 6.28125 8.37096 5.38689 6.7322L6.63689 5.71033C6.87623 5.51358 7.04545 5.24465 7.11924 4.94373C7.19304 4.64282 7.16743 4.32611 7.04626 4.04095L5.68751 0.868453C5.55637 0.559711 5.32058 0.307086 5.0216 0.154995C4.72262 0.00290403 4.37959 -0.0389149 4.05282 0.0368907L1.10938 0.715328C0.793553 0.787004 0.511568 0.964146 0.309906 1.21756C0.108243 1.47097 -0.00106152 1.78553 7.77141e-06 2.10939C7.77141e-06 9.80502 6.24001 16.0031 13.8925 16C14.2163 16.001 14.5308 15.8916 14.7841 15.6899C15.0374 15.4882 15.2144 15.2061 15.286 14.8903L15.9641 11.946C16.0388 11.6194 15.9965 11.277 15.8446 10.9785C15.6927 10.68 15.4408 10.4443 15.1328 10.3125ZM13.8331 14.5028C7.03376 14.4716 1.53126 8.96877 1.50001 2.16564L4.33407 1.51252L5.64939 4.58189L3.52157 6.32283C4.97126 9.41658 6.59001 11.03 9.67783 12.4791L11.4181 10.3506L14.4866 11.6666L13.8331 14.5028Z" fill="black"/>
+              </svg>
+
+              (11) 2853-0781
+            </a>
+
+            <a href="https://api.whatsapp.com/send?phone=55551191280-5879&text=Ol%C3%A1%2C%20venho%20atrav%C3%A9s%20do%20site%20www.poliusppro.com" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.6036 2.325C12.1071 0.825 10.1143 0 7.99643 0C3.625 0 0.0678571 3.55714 0.0678571 7.92857C0.0678571 9.325 0.432143 10.6893 1.125 11.8929L0 16L4.20357 14.8964C5.36071 15.5286 6.66429 15.8607 7.99286 15.8607H7.99643C12.3643 15.8607 16 12.3036 16 7.93214C16 5.81429 15.1 3.825 13.6036 2.325ZM7.99643 14.525C6.81071 14.525 5.65 14.2071 4.63929 13.6071L4.4 13.4643L1.90714 14.1179L2.57143 11.6857L2.41429 11.4357C1.75357 10.3857 1.40714 9.175 1.40714 7.92857C1.40714 4.29643 4.36429 1.33929 8 1.33929C9.76071 1.33929 11.4143 2.025 12.6571 3.27143C13.9 4.51786 14.6643 6.17143 14.6607 7.93214C14.6607 11.5679 11.6286 14.525 7.99643 14.525ZM11.6107 9.58929C11.4143 9.48929 10.4393 9.01071 10.2571 8.94643C10.075 8.87857 9.94286 8.84643 9.81071 9.04643C9.67857 9.24643 9.3 9.68929 9.18214 9.825C9.06786 9.95714 8.95 9.975 8.75357 9.875C7.58929 9.29286 6.825 8.83571 6.05714 7.51786C5.85357 7.16786 6.26071 7.19286 6.63929 6.43571C6.70357 6.30357 6.67143 6.18929 6.62143 6.08929C6.57143 5.98929 6.175 5.01429 6.01071 4.61786C5.85 4.23214 5.68571 4.28571 5.56429 4.27857C5.45 4.27143 5.31786 4.27143 5.18571 4.27143C5.05357 4.27143 4.83929 4.32143 4.65714 4.51786C4.475 4.71786 3.96429 5.19643 3.96429 6.17143C3.96429 7.14643 4.675 8.08929 4.77143 8.22143C4.87143 8.35357 6.16786 10.3536 8.15714 11.2143C9.41429 11.7571 9.90714 11.8036 10.5357 11.7107C10.9179 11.6536 11.7071 11.2321 11.8714 10.7679C12.0357 10.3036 12.0357 9.90714 11.9857 9.825C11.9393 9.73571 11.8071 9.68571 11.6107 9.58929Z" fill="black"/>
+              </svg>
+
+              (11) 91280-5879
+            </a>
+
+            <a href="mailto:queroinfos@poliusppro.com" rel="noopener">
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5 0H1.5C0.671562 0 0 0.671562 0 1.5V10.5C0 11.3284 0.671562 12 1.5 12H14.5C15.3284 12 16 11.3284 16 10.5V1.5C16 0.671562 15.3284 0 14.5 0ZM14.5 1.5V2.77516C13.7993 3.34575 12.6823 4.233 10.2942 6.10297C9.76787 6.51694 8.72538 7.51147 8 7.49988C7.27475 7.51159 6.23191 6.51678 5.70584 6.10297C3.31813 4.23328 2.20078 3.34584 1.5 2.77516V1.5H14.5ZM1.5 10.5V4.69994C2.21606 5.27028 3.23153 6.07063 4.77931 7.28263C5.46234 7.82028 6.6585 9.00719 8 8.99997C9.33491 9.00719 10.5159 7.8375 11.2204 7.28288C12.7682 6.07091 13.7839 5.27034 14.5 4.69997V10.5H1.5Z" fill="black"/>
+              </svg>
+
+              queroinfos@poliusppro.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="social">
+        <a class="perfilIcon" href="https://academico.poliusppro.com/Account/Login?ReturnUrl=%2f" target="_blank">
+          <button type="button">
+            <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.4 8.3125C7.63125 8.3125 7.26161 8.75 6 8.75C4.73839 8.75 4.37143 8.3125 3.6 8.3125C1.6125 8.3125 0 9.95859 0 11.9875V12.6875C0 13.4121 0.575893 14 1.28571 14H10.7143C11.4241 14 12 13.4121 12 12.6875V11.9875C12 9.95859 10.3875 8.3125 8.4 8.3125ZM10.7143 12.6875H1.28571V11.9875C1.28571 10.6859 2.325 9.625 3.6 9.625C3.99107 9.625 4.62589 10.0625 6 10.0625C7.38482 10.0625 8.00625 9.625 8.4 9.625C9.675 9.625 10.7143 10.6859 10.7143 11.9875V12.6875ZM6 7.875C8.12946 7.875 9.85714 6.11133 9.85714 3.9375C9.85714 1.76367 8.12946 0 6 0C3.87054 0 2.14286 1.76367 2.14286 3.9375C2.14286 6.11133 3.87054 7.875 6 7.875ZM6 1.3125C7.41696 1.3125 8.57143 2.49102 8.57143 3.9375C8.57143 5.38398 7.41696 6.5625 6 6.5625C4.58304 6.5625 3.42857 5.38398 3.42857 3.9375C3.42857 2.49102 4.58304 1.3125 6 1.3125Z" fill="white"/>
+            </svg>
+            Login
+          </button>
+        </a>
+        <div class="socialMedia">
+          <ul>
+            <li class="bgFacebook">
+              <a href="https://www.facebook.com/poliusppro" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>              </a>
+            </li>
+
+            <li class="bgInstagram">
+              <a href="https://www.instagram.com/poliusppro/" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>              </a>
+            </li>
+
+            <li class="bgTwitter">
+              <a href="https://twitter.com/poliusppro" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>              </a>
+            </li>
+
+            <li class="bgLinkedin">
+              <a href="https://www.linkedin.com/company/poliusppro" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>              </a>
+            </li>
+
+            <li class="bgYoutube">
+              <a href="https://www.youtube.com/channel/UCi9Sqyk0LVHIrRggNb4KKPQ" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row">
+        <div>
+        Todos os direitos reservados – 2022
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+    <!-- javascript -->
+    <script type="rocketlazyloadscript" data-minify="1" src="https://poliusppro.com/wp-content/cache/min/1/jquery-3.6.0.js?ver=1668013915" crossorigin="anonymous" defer></script>
+    <script type="rocketlazyloadscript" data-minify="1" defer data-rocket-type="text/javascript" src="https://poliusppro.com/wp-content/cache/min/1/wp-content/themes/web-usp-pro/custom/js/internal.js?ver=1668013909"></script>
+
+    <!-- function wordpress -->
+    <!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span><div class="cli-bar-container cli-style-v2"><div class="cli-bar-message">Utilizamos cookies em nossos sites para oferecer a você uma melhor experiência conforme nossa <a href="/politica-de-privacidade">Política de Privacidade.</a> Ao continuar navegando você concorda com estas condições.</div><div class="cli-bar-btn_container"><a id="wt-cli-accept-all-btn" role='button' data-cli_action="accept_all" class="wt-cli-element medium cli-plugin-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button">Aceitar todos</a></div></div></span></div><div id="cookie-law-info-again" data-nosnippet="true"><span id="cookie_hdr_showagain">Manage consent</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Fechar</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Mostrar mais" role="button" data-readmore-text="Mostrar mais" data-readless-text="Mostrar menos"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+															<div class="wt-cli-necessary-checkbox">
+									<input type="checkbox" class="cli-user-preference-checkbox"  id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked="checked"  />
+									<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+								</div>
+								<span class="cli-necessary-caption">Sempre ativado</span>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<div class="wt-cli-cookie-description">
+									Necessary cookies are absolutely essential for the website to function properly. These cookies ensure basic functionalities and security features of the website, anonymously.
+<table class="cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th class="cookielawinfo-column-1">Cookie</th><th class="cookielawinfo-column-3">Duração</th><th class="cookielawinfo-column-4">Descrição</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-analytics</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Analytics".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-functional</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by GDPR cookie consent to record the user consent for the cookies in the category "Functional".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-necessary</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookies is used to store the user consent for the cookies in the category "Necessary".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-others</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Other.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-performance</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Performance".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">viewed_cookie_policy</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by the GDPR Cookie Consent plugin and is used to store whether or not user has consented to the use of cookies. It does not store any personal data.</td></tr></tbody></table>								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="functional" data-toggle="cli-toggle-tab">
+								Functional							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-functional" class="cli-user-preference-checkbox"  data-id="checkbox-functional" />
+									<label for="wt-cli-checkbox-functional" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Functional</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="functional">
+								<div class="wt-cli-cookie-description">
+									Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="performance" data-toggle="cli-toggle-tab">
+								Performance							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-performance" class="cli-user-preference-checkbox"  data-id="checkbox-performance" />
+									<label for="wt-cli-checkbox-performance" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Performance</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="performance">
+								<div class="wt-cli-cookie-description">
+									Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="analytics" data-toggle="cli-toggle-tab">
+								Analytics							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-analytics" class="cli-user-preference-checkbox"  data-id="checkbox-analytics" />
+									<label for="wt-cli-checkbox-analytics" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Analytics</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="analytics">
+								<div class="wt-cli-cookie-description">
+									Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="advertisement" data-toggle="cli-toggle-tab">
+								Advertisement							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-advertisement" class="cli-user-preference-checkbox"  data-id="checkbox-advertisement" />
+									<label for="wt-cli-checkbox-advertisement" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Advertisement</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="advertisement">
+								<div class="wt-cli-cookie-description">
+									Advertisement cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.
+								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="others" data-toggle="cli-toggle-tab">
+								Others							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-others" class="cli-user-preference-checkbox"  data-id="checkbox-others" />
+									<label for="wt-cli-checkbox-others" class="cli-slider" data-cli-enable="Ativado" data-cli-disable="Desativado"><span class="wt-cli-sr-only">Others</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="others">
+								<div class="wt-cli-cookie-description">
+									Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.
+								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SALVAR E ACEITAR</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all-->      <script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+          jQuery.ajax({
+            type: 'POST',
+            url: 'https://poliusppro.com/wp-admin/admin-ajax.php',
+            data: {
+              'action': 'my_count_views',
+              'post_id': 261            }
+          });
+      });</script>
+      <!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v3.12.2 -->  
+            <div class="ht-ctc ht-ctc-chat ctc-analytics ctc_wp_desktop style-3  " id="ht-ctc-chat"  
+                style="display: none;  position: fixed; bottom: 25px; right: 25px;"   >
+                                <div class="ht_ctc_style ht_ctc_chat_style">
+                <div title = '' style="display:flex;justify-content:center;align-items:center; ">
+    <p class="ctc-analytics ctc_cta ctc_cta_stick ht-ctc-cta " style="padding: 0px 16px; line-height: 1.6; ; background-color: #25d366; color: #ffffff; border-radius:10px; margin:0 10px;  display: none; "></p>
+    <svg style="pointer-events:none; display:block; height:50px; width:50px;" width="50px" height="50px" viewBox="0 0 1219.547 1225.016">
+        <path fill="#E0E0E0" d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z"/>
+        <linearGradient id="htwaicona-chat" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084">
+            <stop offset="0" stop-color="#20b038"/>
+            <stop offset="1" stop-color="#60d66a"/>
+        </linearGradient>
+        <path fill="url(#htwaicona-chat)" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"/>
+        <image overflow="visible" opacity=".08" width="682" height="639" transform="translate(270.984 291.372)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"/>
+        <path fill="#FFF" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"/>
+    </svg></div>                </div>
+            </div>
+                        <span class="ht_ctc_chat_data" 
+                data-no_number=""
+                data-settings="{&quot;number&quot;:&quot;5511912805879&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 25px; right: 25px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 25px; right: 25px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_structure_d&quot;:&quot;web&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;}" 
+            ></span>
+            <link data-minify="1" rel='stylesheet' id='cookie-law-info-table-css'  href='https://poliusppro.com/wp-content/cache/min/1/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-table.css?ver=1668013909' type='text/css' media='all' />
+<script type='text/javascript' id='ht_ctc_app_js-js-extra'>
+/* <![CDATA[ */
+var ht_ctc_chat_var = {"number":"5511912805879","pre_filled":"","dis_m":"show","dis_d":"show","css":"display: none; cursor: pointer; z-index: 99999999;","pos_d":"position: fixed; bottom: 25px; right: 25px;","pos_m":"position: fixed; bottom: 25px; right: 25px;","schedule":"no","se":"150","ani":"no-animations","url_structure_d":"web","url_target_d":"_blank","ga":"yes","fb":"yes"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://poliusppro.com/wp-content/cache/min/1/wp-content/plugins/click-to-chat-for-whatsapp/new/inc/assets/js/app.js?ver=1668013909' id='ht_ctc_app_js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/poliusppro.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://poliusppro.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>  </body>
+</html>  
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1668549053 -->

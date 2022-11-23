@@ -1,0 +1,2 @@
+var collapse=document.querySelectorAll('.link-collapse');function removeClassActive(){collapse.forEach(element=>{element.classList.remove('active')})}
+collapse.forEach(element=>{element.onclick=function(){removeClassActive();element.classList.toggle('active');this.onclick=function(){if(this.className.endsWith('active')==!0){this.classList.remove('active')}else{removeClassActive();this.classList.add('active')}}}})

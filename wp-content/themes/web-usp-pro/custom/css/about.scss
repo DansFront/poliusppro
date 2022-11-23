@@ -1,0 +1,347 @@
+@import '_main.scss';
+
+body{
+  background: linear-gradient(179.06deg, #04101E 2.05%, #061527 9.73%, #082039 17.17%, #0E3158 25.21%, #0F3969 32.27%, #104277 39.02%, #124680 52.33%, #124479 60.27%, #0F3460 69.55%, #0D2B4B 77.98%, #0A2745 85.52%, #0A2747 92.14%, #0B2846 99.19%);
+}
+
+// banner
+.banner {
+  width: 100%;
+  height: 300px;
+  padding: 1.5rem 0 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../../../../../wp-content/uploads/2022/11/sobreNos.png);
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+  }
+
+  // title
+  .title{
+    font-family: var(--sora);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    color: #F1F1F1;
+    position: relative;
+
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background-color: #F1F1F1;
+    }
+  }
+
+  // min 992
+  @media screen and (min-width: 992px) {
+    height: 514px;
+    padding: unset;
+  
+    // title
+    .title{
+      font-size: 50px;
+      line-height: 63px;
+
+      &::after{
+        bottom: -15px;
+        width: 135px;
+        height: 4px;
+      }
+    }
+  }
+}
+
+// about us
+.aboutUs {
+  width: 100%;
+  padding: 4rem 0;
+  overflow-x: hidden;
+
+  // poli
+  .poli {
+    width: 100%;
+    margin: 0 0 3rem;
+  }
+
+  // column
+  .column {
+    width: 100%;
+    z-index: 0;
+
+    &:nth-child(1){
+      margin: 0 0 2rem;
+    }
+  }
+
+  // pro
+  .pro {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    margin: 0 0 3rem;
+
+    // phrase
+    .phrase{
+      display: none;
+      width: 112%;
+      position: absolute;
+      bottom: -55px;
+      left: 0;
+      font-family: var(--sora);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 163.138px;
+      line-height: 206px;
+      color: rgba(255, 129, 22, 0.22);
+      align-items: flex-end;
+      z-index: -1;
+
+      span{
+        font-family: var(--sora);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 38px;
+        color: rgba(255, 129, 22, 0.35);
+        padding: 0 0 3rem;
+        transform: translateX(-40px);
+      }
+    }
+
+    // image
+    .image{
+      width: 100%;
+      height: auto;
+      
+      img{
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  // usp
+  .usp {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+  
+    // image
+    .image{
+      width: 100%;
+      height: auto;
+      
+      img{
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  // title
+  .title {
+    font-family: var(--sora);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 37px;
+    color: #FFFFFF;
+    margin: 0 0 1.5rem;
+    
+    span{
+      position: relative;
+
+      &::before{
+        content: '';
+        position: absolute;
+        top: -14px;
+        right: -20px;
+        width: 24.97px;
+        height: 23.93px;
+        background-image: url(../../../assets/images/arrow-poliusppro.svg);
+      }
+    }
+  }
+
+  // text
+  .text,
+  .text a {
+    font-family: var(--mont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+
+    a{
+      text-decoration: underline;
+    }
+  }
+
+  // min 1200
+  @media screen and (min-width: 1200px) {
+    padding: 6rem 0;
+
+     // title
+    .title {
+      font-size: 28px;
+      line-height: 35px;
+      margin: 0 0 2.5rem;
+    }
+
+    // poli
+    .poli {
+      width: 100%;
+      margin: 0 0 5rem;
+    }
+
+    // pro
+    .pro{
+      justify-content: space-between;
+      margin: 0 0 5rem;
+
+      // phrase
+      .phrase{
+        display: flex;
+      }
+
+      // column
+      .column {
+        position: relative;
+
+        &:nth-child(1){
+          width: 60%
+        }
+
+        &:nth-child(2){
+          width: 40%
+        }
+      }
+
+      // image
+      .image{
+        width: 100%;
+        height: 395px;
+        position: relative;
+        
+        img{
+          width: 145%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          max-width: unset;
+          object-fit: contain;
+          object-position: top;
+        }
+      }
+    }
+
+    // usp
+    .usp{
+      justify-content: space-between;
+
+      // column
+      .column {
+        &:nth-child(1){
+          width: 41%
+        }
+
+        &:nth-child(2){
+          width: 55%
+        }
+      }
+
+      // image
+      .image{
+        width: 100%;
+        height: 470px;
+        position: relative;
+        
+        img{
+          width: 145%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          max-width: unset;
+          object-fit: contain;
+          object-position: top;
+        }
+      }
+    }
+  }
+}
+
+// school
+.school{
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  background: rgba(241, 241, 241, 0.13);
+  padding: 3rem 0 1rem;
+
+  // column
+  .column{
+    width: 100%;
+  }
+
+  // text
+  .text{
+    width: 100%;
+    display: block;
+    font-family: var(--mont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #F1F1F1;
+    margin: 0 0 2rem;
+
+    &.first{
+      font-size: 18px;
+      line-height: 167.5%;
+    }
+  }
+
+  // image
+  .image{
+    width: 100%;
+    display: flex;
+    margin: 0 0 2rem;
+  }
+
+  // min 992
+  @media screen and (min-width: 992px) {
+    padding: 3rem 0;
+    
+    // column
+    .column{
+      width: 31%;
+    }
+    
+    // image
+    .image{
+      justify-content: center;
+      margin: unset;
+    }
+  }
+}

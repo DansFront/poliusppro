@@ -1,0 +1,134 @@
+@import '_main.scss';
+
+// body
+body{
+  background: linear-gradient(179.06deg, #04101E 2.05%, #061527 9.73%, #082039 17.17%, #0E3158 25.21%, #0F3969 32.27%, #104277 44.77%, #124680 55.48%, #124479 60.27%, #0F3460 69.55%, #0D2B4B 77.98%, #0A2745 85.52%, #0A2747 92.14%, #0B2846 99.19%);
+}
+
+// banner
+.banner {
+  width: 100%;
+  height: 300px;
+  padding: 2rem 0 0;
+  display: flex;
+  align-items: center;
+  background-color: #9E9E9E;
+
+  // title
+  .title{
+    font-family: var(--sora);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    color: #FFFFFF;
+  }
+
+  // min 992
+  @media screen and (min-width: 992px) {
+    height: 415px;
+
+    // title
+    .title{
+      font-size: 50px;
+      line-height: 63px;
+    }
+  }
+}
+
+// doc
+.doc{
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  padding: 3rem 0 2rem;
+
+  // title
+  .title{
+    width: 100%;
+    display: block;
+    margin: 0 0 3rem;
+    font-family: var(--sora);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: #FFFFFF;
+  }
+
+  // card
+  .card{
+    width: 100%;
+    margin: 0 0 2rem;
+    padding: 30px;
+    border-radius: 24px;
+    background-color: #ffffff;
+
+    // title
+    .title{
+      width: 100%;
+      margin: 0 0 1.5rem;
+      font-family: var(--sora);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+      color: #0F5EBC;
+    }
+
+    // list
+    .list{
+      width: 100%;
+      padding: 0 0 0 1.5rem;
+
+      // item
+      .item{
+        width: 100%;
+        margin: 0 0 1.5rem;
+        font-family: var(--mont);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #000000;
+        list-style-image: url(../../../assets/images/circle-orange.svg);
+
+        &.warning{
+          list-style-image: url(../../../assets/images/warning.svg);
+        }
+      }
+    }
+  }
+
+  // min 992
+  @media screen and (min-width: 992px) {
+    padding: 3rem 0 4rem;
+
+    // card
+    .card{
+      width: 48%;
+      margin: 0 0 4%;
+      padding: 40px;
+
+      // title
+      .title{
+        margin: 0 0 1.5rem;
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      // list
+      .list{
+        padding: 0 0 0 1.5rem;
+
+        // item
+        .item{
+          margin: 0 0 1.5rem;
+          font-size: 16px;
+          line-height: 150%;
+        }
+      }
+    }
+  }
+}

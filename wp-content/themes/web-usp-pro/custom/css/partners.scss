@@ -1,0 +1,95 @@
+@import '_main.scss';
+
+// partners
+.partners{
+  width: 100%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-size: cover;
+  background-position: left;
+  background-image: url(../../../../../../wp-content/uploads/2022/11/bg-parceria.png);
+
+  br{
+    display: block;
+  }
+
+  // title
+  .title{
+    width: 100%;
+    display: block;
+    font-family: var(--sora);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    color: #F1F1F1;
+    position: relative;
+    margin: 0 0 3rem;
+  
+    &::before{
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 94px;
+      height: 4px;
+      background: #FF8116;
+    }
+  }
+
+  // box
+  .box{
+    width: 100%;
+    background: #F1F1F1;
+    border-radius: 16px;
+    padding: 40px;
+
+    // text
+    .text{
+      font-family: var(--mont);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #2D2D2D;
+
+      a{
+        font-weight: 600;
+        color: #2D2D2D;
+      }
+    }
+  }
+
+  // min 992
+  @media screen and (min-width: 992px) {
+    height: 940px;
+    background-position: center;
+    
+    // title
+    .title{
+      font-size: 40px;
+      line-height: 50px;
+      margin: 0 0 4.5rem;
+    
+      &::before{
+        bottom: -20px;
+        width: 94px;
+        height: 6px;
+      }
+    }
+
+    // box
+    .box{
+      width: 520px;
+      padding: 50px 40px;
+
+      // text
+      .text{
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+  }
+}
